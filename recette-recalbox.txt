@@ -1,0 +1,26 @@
+*Pour pouvoir se connecter en ssh :
+ssh-keygen -R 192.168.0.25
+
+*Pour rendre la partition boot editable:
+mount -o remount, rw /boot
+
+*Pour activer l'écran:
+Ajouter a la fin du fichier /boot/config.txt
+max_usb_current=1
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt 800 480 60 6 0 0 0
+hdmi_drive=1
+
+Dans le fichier /recalbox/share/system/recalbox.conf
+trouver la ligne
+global.videomode=CEA 4 HDMI
+remplacer par 
+global.videomode=default
+trouver la ligne
+controllers.gpio.enabled=0
+remplacer par
+controllers.gpio.enabled=1
+
+
+Redemarrer
